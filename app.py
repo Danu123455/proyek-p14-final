@@ -58,7 +58,7 @@ diskon_slider = st.sidebar.slider(
 )
 
 # ======================================
-# Pilihan Tema (Versi Kontras Tinggi)
+# Pilihan Tema (Perbaikan agar tidak nyatu di Sidebar)
 # ======================================
 tema = st.sidebar.selectbox(
     "🎨 Pilih Tema",
@@ -68,26 +68,48 @@ tema = st.sidebar.selectbox(
 if tema == "❄️ Ice Mode":
     st.markdown("""
     <style>
-    .stApp {
-        background: linear-gradient(to bottom, #E0F7FF, #BFEFFF, #FFFFFF);
-        color: #000000; /* Hitam pekat agar jelas */
+    /* Animasi muncul perlahan */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    
+    .stApp { 
+        transition: background 0.8s ease; 
+        background: linear-gradient(to bottom, #E0F7FF, #FFFFFF); 
     }
-    h1, h2, h3, p, div {
-        color: #000000 !important; 
+    
+    /* Efek kotak melayang saat kursor didekatkan */
+    .stMetric, .stSuccess, .stInfo, .stWarning {
+        animation: fadeIn 1.5s;
+        transition: transform 0.3s ease;
+        border-radius: 15px;
     }
+    .stMetric:hover, .stSuccess:hover, .stInfo:hover, .stWarning:hover {
+        transform: scale(1.02);
+    }
+    
+    h1, h2, h3, p, div:not(.stSidebar *) { color: #003366 !important; }
     </style>
     """, unsafe_allow_html=True)
 
 elif tema == "🌿 Earth Mode":
     st.markdown("""
     <style>
-    .stApp {
-        background: linear-gradient(to bottom, #F5FFF5, #D8F3DC, #FFFFFF);
-        color: #000000; /* Hitam pekat agar jelas */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    
+    .stApp { 
+        transition: background 0.8s ease; 
+        background: linear-gradient(to bottom, #D8F3DC, #FFFFFF); 
     }
-    h1, h2, h3, p, div {
-        color: #000000 !important; 
+    
+    .stMetric, .stSuccess, .stInfo, .stWarning {
+        animation: fadeIn 1.5s;
+        transition: transform 0.3s ease;
+        border-radius: 15px;
     }
+    .stMetric:hover, .stSuccess:hover, .stInfo:hover, .stWarning:hover {
+        transform: scale(1.02);
+    }
+    
+    h1, h2, h3, p, div:not(.stSidebar *) { color: #1B4332 !important; }
     </style>
     """, unsafe_allow_html=True)
 
