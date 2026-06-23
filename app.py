@@ -58,7 +58,7 @@ diskon_slider = st.sidebar.slider(
 )
 
 # ======================================
-# Pilihan Tema
+# Pilihan Tema (Versi Kontras Tinggi)
 # ======================================
 tema = st.sidebar.selectbox(
     "🎨 Pilih Tema",
@@ -70,7 +70,10 @@ if tema == "❄️ Ice Mode":
     <style>
     .stApp {
         background: linear-gradient(to bottom, #E0F7FF, #BFEFFF, #FFFFFF);
-        color: #003366;
+        color: #000000; /* Hitam pekat agar jelas */
+    }
+    h1, h2, h3, p, div {
+        color: #000000 !important; 
     }
     </style>
     """, unsafe_allow_html=True)
@@ -80,7 +83,10 @@ elif tema == "🌿 Earth Mode":
     <style>
     .stApp {
         background: linear-gradient(to bottom, #F5FFF5, #D8F3DC, #FFFFFF);
-        color: #1B4332;
+        color: #000000; /* Hitam pekat agar jelas */
+    }
+    h1, h2, h3, p, div {
+        color: #000000 !important; 
     }
     </style>
     """, unsafe_allow_html=True)
